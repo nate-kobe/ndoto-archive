@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}">
+    <link rel="shortcut icon" href="{{ '/assets/favicon.ico' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+</head>
+<body>
+    <div class="section" id="section1">
+        <h1>Welcome to NDOTO</h1>
+        <p>Empowering inclusive education.</p>
+        <a href="#section2" class="arrow">&#x25BC;</a>
+    </div>
+    <div class="section" id="section2">
+        <h1>Our Mission</h1>
+        <p>Supporting diverse and inclusive learning opportunities.</p>
+        <a href="#section3" class="arrow">&#x25BC;</a>
+    </div>
+    <div class="section" id="section3">
+        <h1>Our Impact</h1>
+        <p>Creating sustainable change in communities.</p>
+        <a href="#section1" class="arrow">&#x25BC;</a> <!-- Loops back to top -->
+    </div>
+</body>
+</html>

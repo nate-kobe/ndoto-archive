@@ -1,0 +1,53 @@
+a {
+    color: #ff9d06;
+}
+
+h1, h2, h3 {
+    color: #ff9d06;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #ff9d06; /* Change for each section if needed */
+    color: white;
+    padding: 20px;
+}
+
+.section:nth-child(even) {
+    background: #333;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.arrow {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
