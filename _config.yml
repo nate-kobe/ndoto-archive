@@ -1,0 +1,13 @@
+title: "NDOTO - Archive d'une asso"
+description: "L'association NDOTO est venue en support à la communauté du village d'Oltepes pour le développement d'une école."
+theme: minima
+logo: "/assets/logo.png"
+show_downloads: false
+minima:
+  skin: classic
+  social_links:
+    instagram: association_ndoto
+    facebook: associationNdoto
+sass:
+  style: compressed
+  custom: "/assets/custom.scss"
