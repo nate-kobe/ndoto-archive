@@ -28,10 +28,12 @@ html, body {
     text-align: center;
     background: #ff9d06; /* Change for each section if needed */
     color: white;
+}
+
+.section-container {
     padding: 20px;
     max-width: 960px;  /* Limiter la largeur à 960px */
     margin: 0 auto;    /* Centrer le contenu horizontalement */
-    padding: 20px;     /* Ajouter un peu de padding pour de l'espace autour */
 }
 
 .section:nth-child(odd) {
@@ -43,12 +45,12 @@ html, body {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     margin: 0;
 }
 
 p {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 ul {
