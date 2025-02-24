@@ -1,5 +1,11 @@
 a {
     color: #ff9d06;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+  color: #e68c02;        /* Couleur légèrement plus foncée au survol */
 }
 
 h1, h2, h3 {
@@ -23,10 +29,17 @@ html, body {
     background: #ff9d06; /* Change for each section if needed */
     color: white;
     padding: 20px;
+    max-width: 960px;  /* Limiter la largeur à 960px */
+    margin: 0 auto;    /* Centrer le contenu horizontalement */
+    padding: 20px;     /* Ajouter un peu de padding pour de l'espace autour */
 }
 
-.section:nth-child(even) {
+.section:nth-child(odd) {
     background: #333;
+}
+
+.section:nth-child(even) h1 {
+    color: #333;
 }
 
 h1 {
@@ -36,6 +49,15 @@ h1 {
 
 p {
     font-size: 1.5em;
+}
+
+ul {
+  list-style-type: none; /* Supprime les puces */
+  padding-left: 0;      /* Supprime le padding gauche par défaut */
+}
+
+li {
+  margin-bottom: 10px;  /* Ajoute un petit espace entre les éléments de la liste */
 }
 
 .arrow {
