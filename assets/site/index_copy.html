@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <base href="/" />
+    
+    <link rel="shortcut icon" href="/assets/favicon.webp">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.webp">
+    <link href="https://fonts.bunny.net/css?family=Rubik:400,700|Courier+Prime|Allison|Aleo|Abril+Fatface|Alata" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://bunny.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+
+    <link rel="preload" href="https://bunny.net/lib/fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://bunny.net/lib/fontawesome/css/all.min.css" rel="stylesheet" /></noscript>
+
+    <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/animate.min.css" rel="stylesheet" />
+
+    <script defer src="/assets/bootstrap/jquery.slim.js"></script>
+    <script defer src="/assets/bootstrap/bootstrap.min.js"></script>
+    <script async src="/_content/Sve.Blazor.InfiniteScroll/js/Observer.js"></script>
+    
+
+    
+    <style type="text/css">
+   
+        @font-face {
+            font-family: AdobeBlank;
+            src: url(data:application/octet-stream;base64,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);
+        }
+        :root{--primary-bg:#FFF;--secondary-bg:#183D6D;--light-bg:#F8F9FA;--primary-bg-dark:#223C6A;--secondary-bg-dark:#fff;--dark-bg:#002649;--dark-active-btn:rgba(255,255,255,0.85);--light-active-btn:rgba(34,60,106,0.85)}
+        html,body{font-family:Rubik,sans-serif}
+        .expand-info{margin-bottom:10px;padding-top:10px;padding-bottom:10px;margin-left:5px}
+        .expand-info:last-child{margin-bottom:0}
+        .expand-content{padding:10px 20px;border-left:2px solid #D9D9D9}
+        .dark-theme .expand-title,.dark-theme .expand-content{color:#fff}
+        .dark-theme .expand-title{border-left:2px solid #FFF}
+        .dark-theme .expand-content{border-left:2px solid #183D6D}
+        .collapsed{cursor:pointer!important}
+        .expand-title{font-size:1rem;padding-left:20px;pointer-events:auto;cursor:default;border-left:2px solid #223C6A;font-weight:700}
+        .info-container .not-found-container{padding-bottom:45px}
+        .animate__animated{animation-duration:.5s}
+        .info-container img{padding-left:12.5%;padding-right:12.5%}
+        .dark-theme .info-container h1{color:#FFF}
+        .info-container h1{font-weight:700;font-size:6rem}
+        .not-found-container > h1{font-weight:700;font-size:10rem}
+        .not-found-container > p{font-weight:400;font-size:2rem}
+        .bold{font-weight:700}
+        .license-paragraph{padding-bottom:0;margin-bottom:0}
+        .navbar-light .navbar-toggler{color:#183D6D;border-color:rgba(0,0,0,0)}
+        .selected > .nav-link,.selected > .nav-link:hover{font-weight:700}
+        .footer-link{padding-right:25px}
+        footer hr{margin-top:0!important}
+        .dark-theme footer > .container{-webkit-box-shadow:0 -4px 20px var(--dark-bg);box-shadow:0 -4px 20px var(--dark-bg)}
+        footer > .container{-webkit-box-shadow:0 -4px 20px var(--light-bg);box-shadow:0 -4px 20px var(--light-bg)}
+        footer{position:fixed;width:100%;bottom:0;z-index:100;background:var(--light-bg)}
+        .dark-theme footer{background:var(--dark-bg)}
+        .footer-link:last-child{padding-right:0}
+        .navbar{padding-left:0;padding-right:0;height:55px;padding-bottom:15px;margin-bottom:25px;border-radius:0}
+        .bg-dark{background:rgba(255,255,255,0)!important;color:var(--secondary-bg-dark)!important;border-bottom:1px solid var(--primary-bg-dark)}
+        .bg-light{background:rgba(255,255,255,0)!important;border-bottom:1px solid rgba(0,0,0,.1);color:var(--secondary-bg)!important}
+        .dropdown-item{font-size:12px;padding-left:13px;padding-right:13px;width:100%;white-space:pre-wrap;word-break:break-word;max-width:calc(100vw - 30px)}
+        .dropdown-item:hover,.dropdown-item:active{background:rgba(0,0,0,0.1);color:var(--primary-bg-dark)}
+        .dropdown-custom-header:first-child{padding-top:5px}
+        .dropdown-custom-header,.dropdown-custom-header:hover{color:#777}
+        .dropdown-custom-header{padding-top:5px}
+        .dark-theme .dropdown-custom-header,.dark-theme .dropdown-custom-header:hover{color:rgba(255,255,255,0.4)!important}
+        .dropdown-custom-header:hover{background:rgba(0,0,0,0)!important}
+        .dropdown-menu{padding-top:5px;max-width:100vw;font-size:12px;padding-bottom:5px}
+        .dropdown-menu::-webkit-scrollbar{width:5px}
+        .dark-theme .dropdown-menu::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.75)}
+        .dark-theme .dropdown-menu::-webkit-scrollbar-track{background:rgba(255,255,255,0.15)}
+        .dropdown-menu::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.35);border-top-right-radius:8px;border-bottom-right-radius:8px;border-top-left-radius:0;border-bottom-left-radius:0}
+        .dropdown-menu::-webkit-scrollbar-track{background:rgba(0,0,0,0.1);border-top-right-radius:4px;border-bottom-right-radius:4px}
+        .dropdown-menu{max-height:270px;overflow-y:scroll}
+        .dark-theme .btn-search,.dark-theme .btn-drop,.dark-theme .btn-font-size,.dark-theme .left-arrow,.dark-theme .right-arrow,.dark-theme .dropdown-toggle,.dark-theme .btn-search:before,.dark-theme .btn-drop:before,.dark-theme .btn-font-size:before,.dark-theme .left-arrow:before,.dark-theme .right-arrow:before{background:#fff!important;color:var(--primary-bg-dark)!important}
+        .btn-search,.btn-drop,.btn-font-size,.left-arrow,.right-arrow{width:34px;font-size:.7rem;display:inline-block;border:1px solid #eee;background:#eee;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:0;padding-top:0!important;border-top-left-radius:0;color:var(--secondary-bg);margin-right:5px}
+        .left-arrow,.right-arrow,.left-arrow:hover,.right-arrow:hover{background:var(--secondary-bg);color:#fff}
+        .btn-search:after,.btn-drop:after,.btn-font-size:after,.left-arrow:after,.right-arrow:after,.dropup{display:none}
+        .btn-font-size{width:50px}
+        .btn-search:before,.btn-drop:before,.btn-font-size:before,.left-arrow:before,.right-arrow:before{font-weight:900;font-size:12px;font-family:"Font Awesome 5 Pro"}
+        .btn-search:before{content:"\f002"!important}
+        .btn-drop:before{content:"\f0d7"!important}
+        .right-arrow:before{content:"\f105"!important}
+        .left-arrow:before{content:"\f104"!important}
+        .btn-custom{display:inline-block;border-radius:5px!important;color:var(--secondary-bg);margin-right:5px}
+        .dark-theme .active-btn{color:var(--secondary-bg-dark);background:var(--primary-bg-dark)}
+        .btn-custom:last-child{margin-right:0}
+        .active-btn{color:var(--secondary-bg);filter:drop-shadow(0px 4px 4px rgba(0,0,0,0.05));background:var(--primary-bg)}
+        .main-content{height:100%;min-height:100vh;color:#183D6D;width:100%;background:var(--light-bg);padding-top:20px;padding-bottom:75px}
+        .bold{font-weight:700}
+        .dark-theme{background:var(--dark-bg)}
+        .sidebar-card{text-align:center;border-radius:8px;padding:20px;background:#fff;border:2px solid #eee;cursor:pointer;margin-bottom:10px}
+        .selected-card{border:2px solid var(--secondary-bg);border-radius:8px;cursor:default}
+        .dark-theme .select-wrap:after{color:#fff}
+        .select-wrap:after{content:"\f0d7";display:inline-block;font-weight:900;position:absolute;top:32px;right:30px;font-size:12px;float:right;font-family:"Font Awesome 5 Pro"}
+        select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+        .dark-theme .sidebar-card{background:var(--dark-bg);border-radius:8px!important;border:2px solid rgba(255,255,255,0)}
+        .dark-theme .custom-input,.dark-theme .custom-input::placeholder{background:var(--dark-bg)!important;color:var(--secondary-bg-dark)!important;border:none!important}
+        .dark-theme .selected-card{border:2px solid var(--secondary-bg-dark)!important}
+        .dark-theme .add-btn{color:var(--secondary-bg-dark);background:var(--dark-bg);border:1px solid rgba(255,255,255,0.5)}
+        .horizontal-center{display:flex;align-items:center}
+        .vertical-center{display:flex;justify-content:center;flex-direction:column}
+        .dark-theme input,.dark-theme input::placeholder{color:var(--secondary-bg-dark)!important;border:1px solid rgba(255,255,255,0);background:var(--primary-bg-dark)}
+        .custom-btn{-moz-appearance:none;padding-top:8px!important;height:35px;padding-left:10px;margin-right:0;-webkit-appearance:none;appearance:none}
+        .dark-theme a.open-btn{background:var(--secondary-bg-dark);color:var(--primary-bg-dark)!important}
+        .dark-theme a.open-btn:hover{background:var(--dark-active-btn)}
+        .dark-theme > .sidebar{background:var(--primary-bg-dark);color:#fff!important;padding-bottom:30px}
+        .dark-theme > .sidebar > .font-list > .font-group{background:var(--primary-bg-dark);border:1px solid rgba(255,255,255,0.1)}
+        .dark-theme hr{border-color:var(--primary-bg-dark)}
+        .dark-theme > .container > .row > * > .card-selector > input{border:1px solid #eee}
+        .dark-theme > .container > .row > * > .card-link > .card-new{color:#fff;background:var(--primary-bg-dark);border:1px solid rgba(0,0,0,0)}
+        .dark-theme .form-control{color:#fff;background:var(--primary-bg-dark);border:1px solid transparent}
+        .card-new,.card-selector{border:none}
+        .sidebar > * > h3{font-size:30px;padding-bottom:10px;font-weight:600}
+        .close-btn{cursor:pointer;transition:.2s linear color}
+        .close-btn:hover{color:#777}
+        .sidebar{position:fixed;height:100vh;z-index:9999;right:0;width:350px;padding-left:20px;padding-right:20px;padding-bottom:50px;margin-top:0;padding-top:20px;overflow-y:scroll;top:0;background:#fff;filter:drop-shadow(0px 0px 5px rgba(0,0,0,0.25))}
+        .navbar-toggler:focus{border:none;outline:none;box-shadow:none}
+        .navbar-toggler{border:none;color:var(--secondary-bg);padding-right:0}
+        .dark-theme a.license-url{color:#b5b5b5}
+        .dark-theme .subheader,.dark-theme .families,.dark-theme .close-btn,.dark-theme pre{color:#fff!important}
+        .dark-theme .btn-custom,.dark-theme .navbar-toggler{color:var(--secondary-bg-dark)!important}
+        .dark-theme .not-found-container > p,.dark-theme .not-found-container > h1,.dark-theme .info-container > h1{color:var(--secondary-bg-dark)!important}
+        .dark-theme a.footer-link{color:var(--secondary-bg-dark)}
+        a.footer-link{color:var(--secondary-bg)}
+        a.footer-link:hover{text-decoration:none}
+        .dark-theme .home-btn{background:var(--secondary-bg-dark);color:var(--primary-bg-dark)}
+        .dark-theme .home-btn:hover{color:var(--primary-bg-dark);background:rgba(255,255,255,0.85);text-decoration:none}
+        .home-btn:hover{color:#eee;background:rgba(34,60,106,0.85);text-decoration:none}
+        .home-btn{display:block;width:fit-content;transition:.2s all ease-in-out;padding:10px 25px!important;font-weight:400;filter:drop-shadow(2px 2px 6px rgba(0,0,0,0.15));border-radius:100px;background:var(--primary-bg-dark);color:var(--secondary-bg-dark);cursor:pointer}
+        .nav-link{color:var(--secondary-bg)!important}
+        .nav-item{padding-right:10px}
+        .nav-item:last-child{padding-right:0}
+        .nav-link:hover{color:#0a192b!important}
+        .dark-theme .nav-link,.dark-theme .styles{color:var(--secondary-bg-dark)!important}
+        .dark-theme .card-new{color:#fff!important;background:var(--primary-bg-dark)!important;border:1px solid rgba(255,255,255,0)}
+        .dark-theme a:hover,.dark-theme .close-btn:hover{color:#999}
+        .footer-links{text-align:right}
+        .custom-cont{display:flex;justify-content:center;align-items:center;min-height:calc(100vh - 195px);padding-bottom:35px;padding-top:20px;max-height:100%}
+        .not-found-container h1{margin-top:-25px!important}
+        .not-found-bunny-mobile{display:none}
+        .selected > a{cursor:default}
+        .sort-input{cursor:default!important}
+        @media (max-width: 767.98px) {
+        .dropdown-menu{width:100%}
+        .not-found-bunny-mobile{display:block;padding-top:20px;padding-bottom:75px}
+        .not-found-container{text-align:center}
+        .not-found-container h1{font-size:7rem;padding-bottom:0!important}
+        .custom-cont{display:block;min-height:0;padding-bottom:70px}
+        .home-btn{margin-bottom:10px;display:inline-block}
+        .hidden-mobile{display:none!important}
+        .custom-cont h1{padding-top:20px;padding-bottom:40px}
+        .demo-text{font-size:30px!important}
+        .main-content{padding-bottom:20px}
+        footer{position:static} /* EXPERIMENT: Mobile also pos: fixed; (change back after comparing CLS) */
+        .footer-logo{text-align:center;padding-top:10px;padding-bottom:10px}
+        .footer-links{text-align:center;margin-top:10px}
+        .navbar{height:auto}
+        .col-md-12 > .card-link > .card-new,.col-md-4 > .card-link > .card-new{min-height:150px!important}
+        .switch-area{padding-bottom:20px}
+        .mobile-families{padding-top:7.5px}
+        .switch-area:last-child{padding-bottom:0}
+        .logo{margin-top:0;width:90px!important;height:26px!important}
+        .dark-toggle{padding-right:10px;padding-bottom:20px}
+        .sort-by-text{display:none}
+        .open-btn{width:fit-content;margin-top:10px!important;margin-left:0!important;margin-bottom:10px}
+        .sidebar{width:100vw;height:100vh;padding-bottom:100px}
+        }
+        .font-group{border-radius:8px;min-height:20px;padding:15px;margin-bottom:20px;border:1px solid #eee}
+        a{cursor:pointer}
+        .dark-theme .switch-url{background:var(--dark-bg)}
+        .dark-theme .switch-url:hover{background:#182b4d;color:#fff!important}
+        .switch-url:hover{background:#dedede}
+        .switch-url{border-radius:100px;height:22px;background:#eee;font-size:12px;cursor:pointer;padding:3px 7.5px}
+        .logo{margin-top:-2px;width:100px;height:29px}
+        .dark-switch > label:before{background:#5e5e5e;border:1px solid #777}
+        .family > h3{margin-top:0;font-size:18px}
+        .reset-link,.reset-link > i{text-decoration:none;color:#ff773d}
+        .react-link:hover,.reset-link:hover > i{color:#d67b54;text-decoration:none}
+        .styles{color:var(--secondary-bg)}
+        .families{margin-bottom:25px}
+        .card-selector{background:#fff;border-radius:8px;padding:10px 15px 15px;margin-bottom:20px}
+        .filter-options{margin-bottom:30px}
+        .subheader{margin-bottom:5px;font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:100%;color:var(--secondary-bg)}
+        .font-display-group{padding-top:15px;padding-bottom:10px;border-bottom:1px solid #eee}
+        .font-display-group:first-child{padding-top:0}
+        .font-display-group:last-child{border-bottom:none;padding-bottom:0;margin-bottom:-5px}
+        .add-btn{cursor:pointer;padding:5px 10px;background:#fff;font-size:10px;height:25px;border:1px solid #777;border-radius:50px}
+        .add-area{position:relative;width:0;height:0}
+        .btn-group-sm > .btn,.btn-sm{padding:.39rem .8rem .29rem;font-size:.875rem;height:35px;line-height:1.5;border-radius:.2rem}
+        .open-btn{padding:5px 15px 4px!important;margin-left:10px;margin-top:3.5px;transition:.2s all ease-in-out;filter:drop-shadow(2px 2px 6px rgba(0,0,0,0.15));border-radius:100px;color:#fff!important;background:var(--primary-bg-dark);cursor:pointer}
+        .open-btn:hover{color:#eee!important;background:var(--light-active-btn)}
+        .custom-control-label::before{top:0;height:1.495rem;top:0}
+        .custom-switch .custom-control-label::before{left:-2.25rem;width:2.8rem;pointer-events:all;border-radius:5rem}
+        .custom-control-input:checked ~ .custom-control-label::before{color:#fff;border-color:#ff773d;background-color:#ff773d}
+        .custom-control-input:not(:disabled):active ~ .custom-control-label::before{background-color:#dbdbdb;border-color:inherit}
+        .custom-switch .custom-control-input:checked ~ .custom-control-label::after{background-color:#fff;-webkit-transform:translateX(1.345rem);transform:translateX(1.345rem)}
+        .custom-switch .custom-control-label::after{top:calc(.25rem + 2px);left:calc(-2.25rem + 2px);width:calc(1.5rem - 4px);border-radius:5rem;height:calc(1.5rem - 4px);background-color:#adb5bd;top:2px}
+        .card-link,.card-link:hover{text-decoration:none;width:100%;color:#000}
+        .font-card:hover{box-shadow:0 0 .35rem rgba(0,0,0,0.10)}
+        .col-md-4 > .card-link > .card-new{min-height:300px}
+        .col-md-12 > .card-link > .card-new{min-height:150px}
+        .card-new{background:#fff;border:1px solid rgba(255,255,255,0);color:var(--secondary-bg);border-radius:8px;transition:.2s all linear;padding:15px;margin-bottom:30px;height:calc(100% - 30px)}
+        .card-head{margin-bottom:10px}
+        .card-main{max-width:100%;word-wrap:break-word;padding-bottom:0;margin-bottom:0}
+        .content{padding-top:1.1rem}
+        .validation-message{color:red}
+        .form-control,input{height:35px!important;font-size:.7rem;border-radius:4px;color:#223C6A;border:1px solid #eee;padding:.39rem .8rem .29rem}
+        .dark-theme .dropdown-menu,.dark-theme .dropdown-item{background:var(--primary-bg-dark);color:#fff}
+        .dark-theme .sidebar-dropdown{background:var(--dark-bg)!important}
+        .dark-theme .dropdown-item:hover{background:rgba(255,255,255,0.1);color:#fff}
+        .dark-theme input[type=range].custom-slider::-webkit-slider-runnable-track{background:#fff!important}
+        .dark-theme input[type=range].custom-slider::-webkit-slider-thumb{background:#fff!important}
+        .dark-theme .custom-slider{background:var(--primary-bg-dark)!important}
+        .dark-theme input[type=range].family-slider,.dark-theme .family-slider{color:#fff!important;background:var(--dark-bg)!important;border:none!important}
+        input[type=range].family-slider{border:1px solid #eee!important}
+        .family-page::-webkit-slider-runnable-track{background:#eee!important}
+        input[type=range]::-webkit-slider-runnable-track{background:var(--primary-bg);width:100%;height:1.5px;cursor:pointer;animate:.2s;box-shadow:0 0 0 #000;border-radius:4px;border:0 solid #000}
+        input[type=range].custom-slider{background:#fff;padding-left:15px!important;padding-right:15px!important}
+        input[type=range].custom-slider::-webkit-slider-runnable-track{background:var(--secondary-bg)}
+        input[type=range]{background:rgba(255,255,255,0);height:25px;padding:0!important;-webkit-appearance:none;margin:0;width:100%}
+        input[type=range]:focus{outline:none}
+        input[type=range]::-webkit-slider-thumb{box-shadow:0 0 0 #000;border:1px solid var(--secondary-bg);height:12px;width:12px;border-radius:25px;background:var(--secondary-bg);cursor:pointer;-webkit-appearance:none;margin-top:-5px}
+        input[type=range]:focus::-webkit-slider-runnable-track{background:var(--secondary-bg)}
+        #blazor-error-ui{background:#ffffe0;bottom:0;box-shadow:0 -1px 2px rgba(0,0,0,0.2);display:none;left:0;padding:.6rem 1.25rem .7rem;position:fixed;width:100%;z-index:1000}
+        #blazor-error-ui .dismiss{cursor:pointer;position:absolute;right:.75rem;top:.5rem}
+        .add-btn:hover,.sidebar > input[type=range]::-webkit-slider-runnable-track{background:#eee}
+        .dark-theme .add-btn:hover{background:#001f3b}
+        .dark-theme input[type=range]::-webkit-slider-runnable-track{background:var(--primary-bg-dark)}
+        .dark-theme .custom-slider::-webkit-slider-runnable-track,.dark-theme .style-slider::-webkit-slider-runnable-track{background:var(--dark-bg)!important}
+        .dark-theme .style-slider{background:var(--dark-bg)!important;border:2px solid rgba(255,255,255,0)}
+        .style-slider{border:2px solid #eee}
+        .dark-theme .main-input{background:var(--primary-bg-dark)}    
+    </style>
+
+</head>
+
+<body>
+
+    <!--Blazor:{"type":"webassembly","assembly":"BunnyFontsFrontEnd.Client","typeName":"BunnyFontsFrontEnd.Client.App","parameterDefinitions":"W10=","parameterValues":"W10=","prerenderId":"6e7857dc152e461790be0fb964930916"}--><div class="main-content "><div class="container"><nav class="navbar navbar-expand-md navbar-light bg-light"><a class="navbar-brand" href="/"><img class="logo img-fluid" src="https://bunny.net/v2/images/bunnynet-logo-dark.svg" alt="logo" /></a>
+
+                <div class="group"><a class="navbar-toggler dark-toggle"><i class="fas fa-moon"></i></a><button aria-label="Navbar Toggle" class="navbar-toggler" type="button"><i class="fas fa-bars"></i></button></div>
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent"><ul class="navbar-nav mr-auto"></ul>
+                    
+                    <ul class="navbar-nav"><li class="nav-item selected"><a class="nav-link" href="/">Browse Fonts</a></li>
+                        <li class="nav-item "><a class="nav-link" href="/faq">FAQ</a></li>
+                        <li class="nav-item "><a class="nav-link" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://bunny.net">bunny.net</a></li>
+                        <li class="nav-item d-none d-md-block"><a class="nav-link dark-toggle"><i class="fas fa-moon"></i></a></li>
+                        <li class="nav-item"><a class="nav-link open-btn">
+                                Fonts &nbsp;<i class="far fa-plus"></i></a></li></ul></div></nav></div>
+
+
+
+
+    <div class="sidebar d-none"><div class="d-flex justify-content-between"><h3>Fonts</h3>
+            <h3 class="close-btn"><i class="fal fa-times"></i></h3></div>
+
+        <div class="font-list"><div class="font-group" style="padding-bottom:1px"><div class="d-flex justify-content-between"><p>CSS</p><a class="switch-url">Switch to HTML</a></div><pre style="width:100%;word-break:break-all;white-space:pre-wrap">@import url(https://fonts.bunny.net/css);</pre></div></div></div>
+
+
+    <title>Bunny Fonts | Explore Faster & GDPR friendly Fonts</title>
+<meta name="description" content="Bunny Fonts help make the internet faster, safer and GDPR compliant!">
+
+<div class="sidebar animate__animated d-none"><div class="d-flex justify-content-between"><h3>Filters</h3>
+        <h3 class="close-btn"><i class="fal fa-times"></i></h3></div>
+
+    <p class="subheader"># of Styles (all)</p>
+
+    <input class="form-control main-input custom-slider style-slider" type="range" step="1" min="0" max="17" value="0" />
+
+    <p></p>
+
+    <p class="subheader" style="padding-bottom: 5px;">Category</p>
+
+    <div class="row px-2"><div class="col-6 px-2"><div class="sidebar-card selected-card">
+                All
+            </div></div>
+        <div class="col-6 px-2"><div style="font-family: &#x27;Aleo&#x27;, serif;" class="sidebar-card ">
+                Serif
+            </div></div>
+        <div class="col-6 px-2"><div style="font-family: &#x27;Alata&#x27;, sans-serif;" class="sidebar-card ">
+                Sans-Serif
+            </div></div>
+        <div class="col-6 px-2"><div style="font-family: &#x27;Abril Fatface&#x27;, display;" class="sidebar-card ">
+                Display
+            </div></div>
+        <div class="col-6 px-2"><div style="font-family: &#x27;Allison&#x27;, handwriting;" class="sidebar-card ">
+                Handwriting
+            </div></div>
+        <div class="col-6 px-2"><div style="font-family: &#x27;Courier Prime&#x27;, monospace;" class="sidebar-card ">
+                Monospace
+            </div></div></div>
+
+    <p></p>
+
+    <p class="subheader" style="padding-bottom: 5px;">Language (subset)</p>
+
+
+    <div class="input-group"><button class="form-control text-left sidebar-dropdown sort-input" type="button">Any Language</button>
+
+        <div class="input-group-append"><button class="btn custom-btn btn-drop dropdown-toggle" type="button"></button>
+            <div class="dropdown-menu dropdown-menu-right "><a class="dropdown-item">Any Language</a><a class="dropdown-item">Arabic</a><a class="dropdown-item">Bengali</a><a class="dropdown-item">Chinese (Simplified)</a><a class="dropdown-item">Chinese (Hong Kong)</a><a class="dropdown-item">Chinese (Traditional)</a><a class="dropdown-item">Cyrillic</a><a class="dropdown-item">Cyrillic Extended</a><a class="dropdown-item">Devanagari</a><a class="dropdown-item">Greek</a><a class="dropdown-item">Greek Extended</a><a class="dropdown-item">Gujarati</a><a class="dropdown-item">Gurmukhi</a><a class="dropdown-item">Hebrew</a><a class="dropdown-item">Japanese</a><a class="dropdown-item">Kannada</a><a class="dropdown-item">Khmer</a><a class="dropdown-item">Korean</a><a class="dropdown-item">Latin</a><a class="dropdown-item">Latin Extended</a><a class="dropdown-item">Malayalam</a><a class="dropdown-item">Myanmar</a><a class="dropdown-item">Oriya</a><a class="dropdown-item">Sinhala</a><a class="dropdown-item">Tamil</a><a class="dropdown-item">Telugu</a><a class="dropdown-item">Thai</a><a class="dropdown-item">Tebetan</a><a class="dropdown-item">Vietnamese</a></div></div></div></div>
+
+<div class="container"><div class="row"><div class="col-md-2 switch-area col-6"><p class="subheader">Search</p>
+
+            <div class="input-group"><input class="form-control main-input" disabled type="text" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search..." />
+
+                <div class="input-group-append"><button aria-label="Search" class="btn custom-btn btn-search sort-input" type="button"></button></div></div></div>
+
+        <div class="switch-area col-6 d-md-none"><p class="subheader">Filters</p>
+            <div class="input-group"><button aria-label="Toggle Filters" class="form-control main-input text-left" disabled type="button">Open</button>
+
+                <div class="input-group-append"><button aria-label="Toggle Filters" class="btn custom-btn dropdown-toggle right-arrow" type="button"></button></div></div></div>
+
+        <div class="col-md-5 switch-area col-12"><p class="subheader">Sample Text</p>
+
+            <div class="input-group"><input class="form-control main-input" disabled type="text" placeholder="The quick brown..." value="" />
+
+                <div class="input-group-append"><button aria-label="Sample Texts" class="btn custom-btn btn-drop dropdown-toggle" type="button"></button>
+                    <div class="dropdown-menu "><small class="dropdown-item dropdown-custom-header">SYMBOLS</small><a class="dropdown-item">0123456789 &#xBF; ? &#xA1; ! &amp; @ &#x2018; &#x2019; &#x201C; &#x201D; &#xAB; &#xBB; % * ^ # $ &#xA3; &#x20AC; &#xA2; / ( ) [ ] { } . , &#xAE; &#xA9;</a><small class="dropdown-item dropdown-custom-header">SENTENCES</small><a class="dropdown-item">The quick brown fox jumps over the lazy dog</a><small class="dropdown-item dropdown-custom-header">ALPHABETS</small><a class="dropdown-item">ABCDEFGHIJKLMNOPQRSTUVWXYZ</a><a class="dropdown-item">ZYXWVUTSRQPONMLKJIHGFEDCBA</a></div></div></div></div>
+        <div class="col-md-3 switch-area d-none d-md-block"><p class="subheader">Font Size</p>
+
+            <div class="input-group"><input class="form-control main-input custom-slider" disabled type="range" step="1" min="15" max="40" value="30" />
+
+                <div class="input-group-append"><button class="btn custom-btn btn-font-size dropdown-toggle" type="button">30 px</button></div></div></div>
+        <div class="col-md-2 switch-area d-none d-md-block"><p class="subheader">Filters</p>
+            <div class="input-group"><button aria-label="Toggle Filters" class="form-control main-input text-left" disabled type="button">Open</button>
+
+                <div class="input-group-append"><button class="btn custom-btn dropdown-toggle right-arrow" type="button"></button></div></div></div></div>
+
+    <div class="d-none d-md-block"><br></div>
+
+
+    <div class="row filter-options d-none d-md-block"><div class="col-md-4 offset-md-8 col-sm-4 offset-sm-8"><div class="row"><div class="col-md-6 switch-area"><p class="subheader">Display</p>
+                    <div class="btn-group d-flex"><button type="button" class="btn btn-sm w-100 btn-custom active-btn"><i class="fad fa-th-large"></i></button>
+                        <button type="button" class="btn btn-sm w-100 btn-custom "><i class="fad fa-bars"></i></button></div></div>
+                <div class="col-md-6 col-sm-6 switch-area"><p class="subheader">Sort By</p>
+
+                    <div class="input-group"><button class="form-control main-input sort-input text-left" type="button">Asc.</button>
+
+                        <div class="input-group-append"><button aria-label="Sorting Options" class="btn custom-btn btn-drop dropdown-toggle" type="button"></button>
+                            <div class="dropdown-menu "><a class="dropdown-item">Ascending</a>
+                                <a class="dropdown-item">Descending</a></div></div></div></div></div></div></div>
+
+    <hr>
+
+    <div class="row d-md-none"><div class="col-7"><p class="families mobile-families">0 families</p></div>
+        <div class="col-5"><div class="switch-area"><div class="input-group"><input class="form-control main-input sort-input" type="text" value="Ascending" />
+
+                    <div class="input-group-append"><button aria-label="Sorting Options" class="btn custom-btn btn-drop dropdown-toggle" type="button"></button>
+                        <div class="dropdown-menu dropdown-menu-right "><a class="dropdown-item">Ascending</a>
+                            <a class="dropdown-item">Descending</a></div></div></div>
+                <br></div></div></div>
+
+    <p class="families d-none d-md-block">0 families</p>
+
+    <div class="row"><div class="col-12"><div class="card-new animate__animated animate__fadeIn"><div class="card-main"><h1 style="font-weight: 600; padding-bottom: 0; margin-bottom: 0;"><i class="fad fa-spin fa-spinner-third"></i></h1></div></div></div></div></div>
+
+            <div class="d-none d-md-block"><footer><div class="container"><hr> 
+        <div class="row footer-content"><div class="col-md-6 footer-logo"><img alt="bunny.net logo" loading="lazy" style="width: 97px; height: 22.99px;" src="/assets/footer-dark.svg" /></div>
+            <div class="col-md-6"><p class="footer-links"><a class="footer-link" target="_blank" href="https://bunny.net/gdpr">
+                        GDPR
+                    </a>
+                    <a class="footer-link" target="_blank" href="https://bunny.net/tos">
+                        Terms Of Service
+                    </a>
+                    <a class="footer-link" target="_blank" href="https://bunny.net/privacy">
+                        Privacy Policy
+                    </a></p></div></div></div></footer></div></div><!--Blazor:{"prerenderId":"6e7857dc152e461790be0fb964930916"}-->
+
+    <script defer src="_framework/blazor.webassembly.js"></script>
+
+    <script type="text/javascript">
+        window.PageLoaded = () => {
+            $(".expand-title").click(function (e) {
+                if (!$(this).hasClass("collapsed")) {
+                    e.stopPropagation();
+                }
+            });
+        };
+    </script>
+
+    <!--Blazor-Component-State:e30=-->
+</body>
+
+</html>

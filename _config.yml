@@ -11,3 +11,5 @@ minima:
 sass:
   style: compressed
   custom: "/assets/custom.scss"
+baseurl: ""
+url: "https://your-custom-domain.com"
