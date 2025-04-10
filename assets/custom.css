@@ -8,10 +8,6 @@ a:hover {
   color: #e68c02;        /* Couleur légèrement plus foncée au survol */
 }
 
-h1, h2, h3 {
-    color: #ff9d06;
-}
-
 html, body {
     margin: 0;
     padding: 0;
