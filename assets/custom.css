@@ -40,7 +40,7 @@ html, body {
     background: #333;
 }
 
-.section:nth-child(even) h1 {
+.section:nth-child(even) h1 a {
     color: #333;
 }
 
