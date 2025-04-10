@@ -6,7 +6,7 @@ a {
 }
 
 a:hover {
-  color: #e68c02;        /* Couleur légèrement plus foncée au survol */
+  color: #111;        /* Couleur légèrement plus foncée au survol */
 }
 
 html, body {
@@ -38,7 +38,7 @@ html, body {
     color: #ff9d06;
 }
 
-.section:nth-child(even) h1 a {
+.section:nth-child(even) {
     color: #333;
     background: #ff9d06;
 }
